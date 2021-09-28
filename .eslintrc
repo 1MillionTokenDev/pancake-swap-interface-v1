@@ -11,7 +11,6 @@
     "browser": true,
     "jest": true
   },
-
   "extends": "@pancakeswap-libs/eslint-config-pancake",
   "rules": {
     "no-console": ["warn", { "allow": ["info", "warn", "error"] }],
@@ -35,7 +34,8 @@
     "no-nested-ternary": 0,
     "default-case": 0,
     "react/require-default-props": 0,
-    "class-methods-use-this": 0
+    "class-methods-use-this": 0,
+    "react/jsx-no-bind": 0
     // End temporary rules
   }
 }

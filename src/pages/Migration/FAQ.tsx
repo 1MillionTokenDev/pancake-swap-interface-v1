@@ -7,7 +7,7 @@ import useI18n from 'hooks/useI18n'
 import config from './config'
 
 const Wrapper = styled(Container)`
-  background: ${({ theme }) => theme.colors.gradients.violetAlt};
+  background: ${({ theme }) => theme.colors.gradients.bubblegum};
 `
 
 const FAQ = () => {
