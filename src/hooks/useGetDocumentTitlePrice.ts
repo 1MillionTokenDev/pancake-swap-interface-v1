@@ -1,19 +1,19 @@
 import { useEffect } from 'react'
-import useGetCakeBusdLpPrice from 'utils/useGetCakeBusdLpPrice'
+import useGetB1MTBusdLpPrice from 'utils/useGetCakeBusdLpPrice'
 
 const useGetDocumentTitlePrice = () => {
-  const cakePriceBusd = useGetCakeBusdLpPrice()
+  const b1MTPriceBusd = useGetB1MTBusdLpPrice()
 
-  const cakePriceBusdString =
-    Number.isNaN(cakePriceBusd) || cakePriceBusd === 0 || !cakePriceBusd
+  const b1MTPriceBusdString =
+    Number.isNaN(b1MTPriceBusd) || b1MTPriceBusd === 0 || !b1MTPriceBusd
       ? ''
-      : ` - $${cakePriceBusd.toLocaleString(undefined, {
+      : ` - $${b1MTPriceBusd.toLocaleString(undefined, {
           minimumFractionDigits: 3,
           maximumFractionDigits: 3,
         })}`
 
   useEffect(() => {
-    document.title = `PancakeSwap${cakePriceBusdString}`
-  }, [cakePriceBusdString])
+    document.title = `b1MT${b1MTPriceBusdString}`
+  }, [b1MTPriceBusdString])
 }
 export default useGetDocumentTitlePrice
