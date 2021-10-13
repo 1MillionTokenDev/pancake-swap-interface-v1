@@ -5,11 +5,12 @@ import Flex from "../../components/Box/Flex";
 import Logo from "./components/Logo";
 import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
-import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
+import { MENU_HEIGHT } from "./config";
 
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
+  height: 100%;
 `;
 
 const StyledNav = styled.nav<{ showMenu: boolean }>`
@@ -33,6 +34,7 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
 const BodyWrapper = styled.div`
   position: relative;
   display: flex;
+  height: 100%;
 `;
 
 const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
@@ -41,11 +43,6 @@ const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   transition: margin-top 0.2s;
   transform: translate3d(0, 0, 0);
   max-width: 100%;
-
-  ${({ theme }) => theme.mediaQueries.nav} {
-    margin-left: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
-    max-width: ${({ isPushed }) => `calc(100% - ${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px)`};
-  }
 `;
 
 const Menu: React.FC<NavProps> = ({

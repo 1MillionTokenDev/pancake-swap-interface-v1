@@ -1,10 +1,11 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
-import { Heading, IconButton, Text, Flex, TuneIcon, HistoryIcon } from '@pancakeswap-libs/uikit'
+import { Heading, IconButton, Text, Flex } from '@pancakeswap-libs/uikit'
 import { useModal } from 'components/Uikit'
 import useI18n from 'hooks/useI18n'
 import SettingsModal from './SettingsModal'
 import RecentTransactionsModal from './RecentTransactionsModal'
+import { SettingsIcon, HistoryIcon } from '../Uikit/components/Svg';
 
 interface PageHeaderProps {
   title: ReactNode
@@ -15,6 +16,9 @@ interface PageHeaderProps {
 const StyledPageHeader = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.colors.borderColor};
   padding: 24px;
+  div {
+    color: #1A888E !important;
+  }
 `
 
 const Details = styled.div`
@@ -38,14 +42,14 @@ const PageHeader = ({ title, description, children }: PageHeaderProps) => {
           )}
         </Details>
         <IconButton variant="text" onClick={onPresentSettings} title={TranslateString(1200, 'Settings')}>
-          <TuneIcon width="24px" color="currentColor" />
+          <SettingsIcon height="18px" color="none" />
         </IconButton>
         <IconButton
           variant="text"
           onClick={onPresentRecentTransactions}
           title={TranslateString(1202, 'Recent transactions')}
         >
-          <HistoryIcon width="24px" color="currentColor" />
+          <HistoryIcon height="20px" color="none"/>
         </IconButton>
       </Flex>
       {children && <Text mt="16px">{children}</Text>}

@@ -1,7 +1,7 @@
 import { CurrencyAmount, JSBI, Token, Trade } from '@pancakeswap-libs/sdk'
 import React, { useCallback, useContext, useEffect, useMemo, useState, useRef } from 'react'
 import { ArrowDown } from 'react-feather'
-import { CardBody, ArrowDownIcon, Button, IconButton, Text, Link, Flex } from '@pancakeswap-libs/uikit'
+import { CardBody, ArrowDownIcon, Text, Link, Flex } from '@pancakeswap-libs/uikit'
 import styled, { ThemeContext } from 'styled-components'
 import AddressInputPanel from 'components/AddressInputPanel'
 import Card, { GreyCard } from 'components/Card'
@@ -37,6 +37,7 @@ import PageHeader from 'components/PageHeader'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import V2ExchangeRedirectModal from 'components/V2ExchangeRedirectModal'
 import { useModal } from '../../components/Uikit'
+import { Button, IconButton } from '../../components/Uikit/components/Button';
 import AppBody from '../AppBody'
 
 const StyledLink = styled(Link)`
@@ -495,7 +496,7 @@ const Swap = () => {
                 </Flex>
               )}
               {!account ? (
-                <ConnectWalletButton width="100%" />
+                <ConnectWalletButton variant="action" width="100%" />
               ) : showWrap ? (
                 <Button disabled={Boolean(wrapInputError)} onClick={onWrap} width="100%">
                   {wrapInputError ??
@@ -511,7 +512,7 @@ const Swap = () => {
                     onClick={approveCallback}
                     disabled={disableSwap || approval !== ApprovalState.NOT_APPROVED || approvalSubmitted}
                     style={{ width: '48%' }}
-                    variant={approval === ApprovalState.APPROVED ? 'success' : 'primary'}
+                    variant={approval === ApprovalState.APPROVED ? 'success' : 'action'}
                   >
                     {approval === ApprovalState.PENDING ? (
                       <AutoRow gap="6px" justify="center">
@@ -545,7 +546,7 @@ const Swap = () => {
                       approval !== ApprovalState.APPROVED ||
                       (priceImpactSeverity > 3 && !isExpertMode)
                     }
-                    variant={isValid && priceImpactSeverity > 2 ? 'danger' : 'primary'}
+                    variant={isValid && priceImpactSeverity > 2 ? 'danger' : 'action'}
                   >
                     {priceImpactSeverity > 3 && !isExpertMode
                       ? `Price Impact High`
@@ -571,7 +572,7 @@ const Swap = () => {
                   disabled={
                     disableSwap || !isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError
                   }
-                  variant={isValid && priceImpactSeverity > 2 && !swapCallbackError ? 'danger' : 'primary'}
+                  variant={isValid && priceImpactSeverity > 2 && !swapCallbackError ? 'danger' : 'action'}
                   width="100%"
                 >
                   {swapInputError ||

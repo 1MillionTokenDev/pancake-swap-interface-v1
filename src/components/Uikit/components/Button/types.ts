@@ -11,6 +11,7 @@ export const scales = {
 export const variants = {
   PRIMARY: "primary",
   SECONDARY: "secondary",
+  Action: "action",
   TERTIARY: "tertiary",
   TEXT: "text",
   DANGER: "danger",

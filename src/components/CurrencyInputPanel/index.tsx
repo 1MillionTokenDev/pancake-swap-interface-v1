@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import { Currency, Pair } from '@pancakeswap-libs/sdk'
-import { Button, ChevronDownIcon, Text } from '@pancakeswap-libs/uikit'
+import { ChevronDownIcon, Text } from '@pancakeswap-libs/uikit'
 import styled from 'styled-components'
 import { darken } from 'polished'
 import useI18n from 'hooks/useI18n'
@@ -11,6 +11,7 @@ import DoubleCurrencyLogo from '../DoubleLogo'
 import { RowBetween } from '../Row'
 import { Input as NumericalInput } from '../NumericalInput'
 import { useActiveWeb3React } from '../../hooks'
+import { Button } from '../Uikit/components/Button';
 
 const InputRow = styled.div<{ selected: boolean }>`
   display: flex;
@@ -33,14 +34,14 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
   padding: 0 0.5rem;
   :focus,
   :hover {
-    background-color: ${({ theme }) => darken(0.05, theme.colors.input)};
+    background-color: rgba(26, 136, 142, 0.3);
   }
 `
 const LabelRow = styled.div`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  color: ${({ theme }) => theme.colors.text};
+  color: #1A888E;
   font-size: 0.75rem;
   line-height: 1rem;
   padding: 0.75rem 1rem 0 1rem;
@@ -64,7 +65,7 @@ const InputPanel = styled.div<{ hideInput?: boolean }>`
 `
 const Container = styled.div<{ hideInput: boolean }>`
   border-radius: 16px;
-  background-color: ${({ theme }) => theme.colors.input};
+  background-color: rgba(26, 136, 142, 0.1);
   box-shadow: ${({ theme }) => theme.shadows.inset};
 `
 interface CurrencyInputPanelProps {

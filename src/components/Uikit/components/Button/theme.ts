@@ -31,6 +31,10 @@ export const styleVariants = {
       backgroundColor: "transparent",
     },
   },
+  [variants.Action]: {
+    backgroundColor: "action",
+    color: "#0A3639",
+  },
   [variants.TERTIARY]: {
     backgroundColor: "tertiary",
     boxShadow: "none",

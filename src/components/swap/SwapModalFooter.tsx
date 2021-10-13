@@ -1,6 +1,6 @@
 import { Trade, TradeType } from '@pancakeswap-libs/sdk'
 import React, { useMemo, useState } from 'react'
-import { Text, Button } from '@pancakeswap-libs/uikit'
+import { Text } from '@pancakeswap-libs/uikit'
 import { Repeat } from 'react-feather'
 
 import useI18n from 'hooks/useI18n'
@@ -16,6 +16,7 @@ import QuestionHelper from '../QuestionHelper'
 import { AutoRow, RowBetween, RowFixed } from '../Row'
 import FormattedPriceImpact from './FormattedPriceImpact'
 import { StyledBalanceMaxMini, SwapCallbackError } from './styleds'
+import { Button} from '../Uikit/components/Button';
 
 export default function SwapModalFooter({
   trade,
@@ -118,7 +119,7 @@ export default function SwapModalFooter({
         <Button
           onClick={onConfirm}
           disabled={disabledConfirm}
-          variant={severity > 2 ? 'danger' : 'primary'}
+          variant={severity > 2 ? 'danger' : 'action'}
           mt="10px"
           id="confirm-swap-or-send"
           width="100%"
